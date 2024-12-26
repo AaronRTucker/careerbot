@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<!-- insert your AIML categories here -->
+
+
+
+
+<category>
+	<pattern>HELLO</pattern>
+	<template>Hi, I'm career bot!  I'm going to ask you a few questions to determine what might be the right career choice for you!  We will start with more specific questions and end with more general ones, so please only answer yes to the first few questions if you feel strongly!  Please say "I'm ready" when you are ready!  </template>
+</category>
+
+<!-- Handle some different versions of hello in various languages and variations-->
+<!-- SRAI tag aliases to the same hello template above -->
+<category>
+<pattern>HI</pattern>
+<template><srai>HELLO</srai></template>
+</category>
+
+<category>
+<pattern>HI THERE</pattern>
+<template><srai>HELLO</srai></template>
+</category>
+
+<category>
+<pattern>HOWDY</pattern>
+<template><srai>HELLO</srai></template>
+</category>
+
+<category>
+<pattern>HOLA</pattern>
+<template><srai>HELLO</srai></template>
+</category>
+
+<category>
+	<pattern>HOW ARE YOU</pattern>
+	<template><srai>HELLO</srai></template>
+</category>
+
+
+
+<!-- Handle the user's input saying they're ready-->
+<!-- SRAI tag aliases handle the user using different versions of I am, discovered during training -->
+<category>
+    <pattern>IM READY</pattern>
+    <template>Did you ever think during your classes that you would be good at teaching the material?</template>
+</category>
+
+<category>
+    <pattern>I AM READY</pattern>
+    <template><srai>IM READY</srai></template>
+</category>
+
+
+<!-- Answer questions in order and handle the context using "that" tag to deliver the correct next response-->
+<category>
+    <pattern>YES</pattern>
+    <that>Did you ever think during your classes that you would be good at teaching the material</that>
+    <template>You answered yes that you think you would be good at teaching, so here are some links to explore that career.  A teaching certificate is typically the first step.  The certification information for Texas is available here:
+        <button>
+            <text>Becoming a classroom teacher in Texas</text>
+            <url>https://tea.texas.gov/texas-educators/certification/initial-certification/becoming-a-classroom-teacher-in-texas</url>
+        </button>
+    </template>
+</category>
+
+<category>
+    <pattern>NO</pattern>
+    <that>Did you ever think during your classes that you would be good at teaching the material</that>
+    <template>We you proficient at learning encryption protocols and solving those tough questions on exams?</template>
+</category>
+
+<category>
+    <pattern>YES</pattern>
+    <that>We you proficient at learning encryption protocols and solving those tough questions on exams</that>
+    <template>You answered yes that you were proficient at encryption protocols, so here are some links to explore a career in cyber security.  Getting the right certificates is typically the first step.  The certification information is available here:
+        <button>
+            <text>Cybersecuity Certifications</text>
+            <url>https://niccs.cisa.gov/education-training/cybersecurity-certifications</url>
+        </button>
+    </template>
+</category>
+
+<category>
+    <pattern>NO</pattern>
+    <that>We you proficient at learning encryption protocols and solving those tough questions on exams</that>
+    <template>Did you enjoy your programming classes?</template>
+</category>
+
+<category>
+    <pattern>YES</pattern>
+    <that>Did you enjoy your programming classes</that>
+    <template>You answered yes that you enjoyed your programming classes, so here are some links to explore programming language certificates.  Coursera is a great place to brush up on various languages, more information is available here:
+        <button>
+            <text>Professional Certificates</text>
+            <url>https://www.coursera.org/professional-certificates</url>
+        </button>    
+    </template>
+</category>
+
+<category>
+    <pattern>NO</pattern>
+    <that>Did you enjoy your programming classes</that>
+    <template>Do you enjoy IT hardware and network troubleshooting more than software troubleshooting?</template>
+</category>
+
+<category>
+    <pattern>YES</pattern>
+    <that>Do you enjoy it hardware and network troubleshooting more than software troubleshooting</that>
+    <template>You answered yes that you enjoyed working IT hardware and network troubleshooting more, so here are some links to explore that career on Coursera:        
+        <button>
+            <text>Microsoft IT support Specialist Program</text>
+            <url>https://www.coursera.org/professional-certificates/microsoft-it-support-specialist</url>
+        </button> 
+    </template>
+</category>
+
+<category>
+    <pattern>NO</pattern>
+    <that>Do you enjoy it hardware and network troubleshooting more than software troubleshooting</that>
+    <template>A career in software quality assurance may be a good place to start.  You'll get exposure to lots of different areas of computer science and be able to specialize later.  Here is a link to some courses for it on Coursera:
+        <button>
+            <text>Corsera Quality Assurance programs</text>
+            <url>https://www.coursera.org/courses?query=quality%20assurance</url>
+        </button>     
+    </template>
+</category>
+
+
+
+
+
+
+<!-- Catch any unexpected user input and redirect them -->
+<category>
+	<pattern>*</pattern>
+	<template>I see you wrote "<star />" which is not what I expected.  Can you answer again with a yes or no, please?  Or start over by saying hello again.</template>
+</category>
+
+
+</aiml>
